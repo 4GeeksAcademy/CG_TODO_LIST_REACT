@@ -1,5 +1,4 @@
 import React, {useState, useEffect}  from "react";
-import Task from "./task";
 
 const Todo_list = () => {
 
@@ -8,7 +7,7 @@ const Todo_list = () => {
     useEffect(() => {
 		fetch("https://assets.breatheco.de/apis/fake/todos/user/carlosgarciare2")
         .then (response => {
-			return Response.json()
+			return response.json()
 		})
 		.then (response => {
 			setListItems(response)
@@ -16,18 +15,19 @@ const Todo_list = () => {
 
 	}, [])
 
+
     return(
         <div className="row">
             <h1>TASK LIST</h1>
-            {
-                listItems.map((task) => {
-                    return (
-                        <div className="row">
-                            <task label={task.label} />
-                        </div>
-                    )
-                })
-            }
+            <ul>
+                {
+                    listItems.map((list,index) => {
+                        return (
+                            <li key={index}>{list.label} {list.done}</li>
+                        )
+                    })
+                }
+            </ul>
         </div>
     );
 };

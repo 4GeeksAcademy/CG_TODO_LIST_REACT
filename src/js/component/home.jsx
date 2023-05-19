@@ -1,6 +1,5 @@
 import React from "react";
 import Todo_list from "./toDoList";
-import Task from "./task";
 
 
 //create your first component
